@@ -6,7 +6,7 @@ plugins {
 
 group = 'de.htwberlin.webtech'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '17.0.3'
+sourceCompatibility = '17'
 
 repositories {
 	mavenCentral()

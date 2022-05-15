@@ -15,3 +15,5 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "spring-boot-to-do-app-2022"
           heroku_email: "islam.abdelrahman@student.htw-berlin.de"
+          procfile: "web java -Dserver.port=$PORT $JAVA_OPTS -jar build/libs/web-tech-0.0.1-SNAPSHOT.jar
+"
