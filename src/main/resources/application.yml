@@ -1,0 +1,25 @@
+
+spring:
+  datasource:
+    username: xmojeggseitama
+    password: 8e88fa6ba91288cb5d34a4653cbaadddc53d0fff4db1a8585f693c2d430d174c
+    url: jdbc:postgresql://ec2-63-35-156-160.eu-west-1.compute.amazonaws.com:5432/da8r66jqqudibm?user=xmojeggseitama&password=8e88fa6ba91288cb5d34a4653cbaadddc53d0fff4db1a8585f693c2d430d174c&sslmode=require
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 5
+  jpa:
+    properties:
+      hibernate:
+        # The SQL dialect makes Hibernate generate better SQL for the chosen database
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        jdbc:
+          time_zone: UTC
+    show-sql: false # Set true for debugging
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update # (create, create-drop, validate, update)
+    open-in-view: false
+  sql:
+    init:
+      platform: postgres
+      mode: always
