@@ -38,20 +38,20 @@ public class TaskService {
         return taskId;
     }
 
-    public void DeleteTask(long id) {
+    public boolean DeleteTask(long id) {
         long itemId = 0;
         taskRepo.deleteById(id);
-        logger.info("task was removed ");
+        return true ;
     }
 
-    public long UpdateTask(long todoId, TaskEntity task) {
+    public long UpdateTask(long todoId, TaskManuplationRequest task) {
 
         long newId = 0;
         try {
             TaskEntity TasktoUpdate = taskRepo.findById(todoId).get();
             TasktoUpdate.setTitle(task.getTitle());
             TasktoUpdate.setDescription(task.getDescription());
-            TasktoUpdate.setDone(task.getDone());
+            TasktoUpdate.setDone(task.isDone());
             taskRepo.save(TasktoUpdate);
             newId = TasktoUpdate.getId();
             return newId;
