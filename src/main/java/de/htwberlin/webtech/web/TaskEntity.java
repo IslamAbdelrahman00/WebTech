@@ -1,11 +1,7 @@
 package de.htwberlin.webtech.web;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -38,6 +34,10 @@ public class TaskEntity {
     @Column(name = "Task_complete")
     private boolean done;
 
+    public TaskEntity() {
+
+    }
+
     public TaskEntity(String title, String description, boolean done) {
         this.title = title;
         this.description = description;
@@ -48,8 +48,16 @@ public class TaskEntity {
         return title;
     }
 
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     public String getDescription() {
         return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public long getId() {
@@ -58,13 +66,6 @@ public class TaskEntity {
 
     public boolean getDone() {
         return done;
-    }
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public void setDone(boolean done) {
