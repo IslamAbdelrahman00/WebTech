@@ -3,13 +3,18 @@ package de.htwberlin.webtech.web;
 public class TaskManuplationRequest {
 
 
+    private String title;
+    private String description;
+    private boolean done = Boolean.FALSE;
+
     public TaskManuplationRequest(String title, String description, boolean done) {
         this.title = title;
         this.description = description;
         this.done = done;
     }
 
-    private String title;
+    public TaskManuplationRequest() {
+    }
 
     public String getTitle() {
         return title;
@@ -34,9 +39,6 @@ public class TaskManuplationRequest {
     public void setDone(boolean done) {
         this.done = done;
     }
-
-    private String description;
-    private boolean done = Boolean.FALSE;
 
 }
 
