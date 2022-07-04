@@ -10,8 +10,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("*")
-                .allowedMethods("+")
+        registry.addMapping("/**")
+                .allowedMethods("*")
+                .allowedHeaders("Content-Type, Access-Control-Allow-Origin, Access-Control-Allow-Headers, Authorization, X-Requested-With, requestId, Correlation-Id")
                 .allowedOrigins(
                         "http://localhost:3000/ ",
                         "https://to-do-app-frontend.herokuapp.com"
