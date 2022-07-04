@@ -1,7 +1,6 @@
 package de.htwberlin.webtech.web;
 
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -10,7 +9,6 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name = "Task")
 @AllArgsConstructor
-@NoArgsConstructor
 
 public class TaskEntity {
     @Id
@@ -18,24 +16,19 @@ public class TaskEntity {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "task_seq")
     @Column(name = "task_id", updatable = false, nullable = false)
     private long id;
-
-
     @NotBlank
     @Size(min = 3, message = "A title should have at least 3 characters")
     @Column(name = "task_title")
     private String title;
-
     @NotBlank
     @Size(min = 6, message = "the Description should have at least 6 characters")
     @Column(name = "task_description")
     private String description;
-
-
     @Column(name = "Task_complete")
     private boolean done;
 
-    public TaskEntity() {
 
+    public TaskEntity() {
     }
 
     public TaskEntity(String title, String description, boolean done) {

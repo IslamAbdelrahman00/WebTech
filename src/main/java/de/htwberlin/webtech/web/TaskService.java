@@ -2,6 +2,7 @@ package de.htwberlin.webtech.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,7 +42,7 @@ public class TaskService {
     public boolean DeleteTask(long id) {
         long itemId = 0;
         taskRepo.deleteById(id);
-        return true ;
+        return true;
     }
 
     public long UpdateTask(long todoId, TaskManuplationRequest task) {
@@ -62,11 +63,13 @@ public class TaskService {
 
     }
 
+    @Transactional
     public Long create(TaskManuplationRequest request) {
-        var task = new TaskEntity(request.getTitle(), request.getDescription(), request.isDone());
+        TaskEntity task = new TaskEntity(request.getTitle(), request.getDescription(), request.isDone());
 
         taskRepo.save(task);
-        return task.getId();
+        long id = task.getId();
+        return id;
     }
 
 }

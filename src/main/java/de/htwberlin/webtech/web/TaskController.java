@@ -19,6 +19,7 @@ public class TaskController {
         this.taskservice = taskservice;
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping(path = "api/v1/tasks")
     @ResponseStatus(HttpStatus.OK)
     public List<TaskEntity> fetchTasks() {
